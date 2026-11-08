@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discord URL Swapper</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="head">
+      <div class="head__icon">⚡</div>
+      <div>
+        <h1>Vanity URL Swapper</h1>
+        <p>Bir vanity URL'yi bir sunucudan diğerine anlık aktar</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="group">
+        <label for="url">ALINACAK VANITY URL</label>
+        <span class="hint">örn: discord</span>
+        <input id="url" type="text" placeholder="discord" spellcheck="false" autocomplete="off" />
+      </div>
+
+      <div class="group">
+        <label for="server">AKTARILACAK SUNUCU ID</label>
+        <span class="hint">URL'nin gideceği sunucu</span>
+        <input id="server" type="text" placeholder="123456789012345678" spellcheck="false" autocomplete="off" />
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="group">
+        <label for="dtoken">HEDEF URL'Yİ SİLECEK TOKEN</label>
+        <span class="hint">URL'ye şu an sahip olan sunucunun tokenı</span>
+        <input id="dtoken" type="password" spellcheck="false" autocomplete="off" />
+      </div>
+
+      <div class="group">
+        <label for="dpass">SİLME HESABI ŞİFRESİ</label>
+        <span class="hint">Silme hesabının 2FA şifresi</span>
+        <input id="dpass" type="password" spellcheck="false" autocomplete="off" />
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="group">
+        <label for="ctoken">HEDEF URL'Yİ ALACAK TOKEN</label>
+        <span class="hint">Hedef sunucunun yönetici tokenı</span>
+        <input id="ctoken" type="password" spellcheck="false" autocomplete="off" />
+      </div>
+
+      <div class="group">
+        <label for="cpass">ALMA HESABI ŞİFRESİ</label>
+        <span class="hint">Alma hesabının 2FA şifresi</span>
+        <input id="cpass" type="password" spellcheck="false" autocomplete="off" />
+      </div>
+
+      <div class="note">
+        ⚠️ Bu işlem 2 hesap gerektirir. Önce mevcut URL silinir (silme token),
+        ardından hedef sunucuya eklenir (alma token). MFA şifreleri zorunludur.
+      </div>
+
+      <button id="run" class="btn">SWAP İŞLEMİNİ BAŞLAT</button>
+    </section>
+
+    <section class="card log-card hidden" id="logCard">
+      <div class="log-title">ACTIVITY LOG</div>
+      <div id="log" class="log"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
